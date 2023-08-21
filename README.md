@@ -14,6 +14,14 @@ BookNLP is a natural language processing pipeline that scales to books and other
 BookNLP ships with two models, both with identical architectures but different underlying BERT sizes.  The larger and more accurate `big` model is fit for GPUs and multi-core computers; the faster `small` model is more appropriate for personal computers.  See the table below for a comparison of the difference, both in terms of overall speed and in accuracy for the tasks that BookNLP performs.
 
 
+## Changes Made
+This repository is a fork of the original BookNLP project. It includes modifications to support BERT-based models, specifically addressing issues with unexpected keys in the model's state dictionary.
+
+* BERT Model Support: Introduced the ability to use BERT models for entity recognition, quotation attribution, and coreference resolution.
+* State Dictionary Loading: Fixed issues related to unexpected keys in the state dictionary when loading pretrained BERT models. This includes removing the "bert.embeddings.position_ids" key and potentially other unexpected keys.
+* Updated Dependencies: Updated the requirements to be compatible with the newer versions of the necessary packages.
+-------
+
 | |Small|Big|
 |---|---|---|
 Entity tagging (F1)|88.2|90.0|
