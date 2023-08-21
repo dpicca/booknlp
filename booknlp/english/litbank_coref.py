@@ -16,7 +16,18 @@ class LitBankCoref:
 		base_model=re.sub(".model", "", base_model)
 
 		self.model = BERTCorefTagger(gender_cats=gender_cats, freeze_bert=True, base_model=base_model, pronominalCorefOnly=pronominalCorefOnly)
-		self.model.load_state_dict(torch.load(modelFile, map_location=device))
+		# Load the state dictionary from the file
+		model_state = torch.load(modelFile, map_location=device)
+
+		# Remove unexpected keys
+		unexpected_keys = ["bert.embeddings.position_ids"]
+		for key in unexpected_keys:
+			model_state.pop(key, None)
+
+		# Load the modified state dictionary into the model
+		self.model.load_state_dict(model_state, strict=False)
+
+		#self.model.load_state_dict(torch.load(modelFile, map_location=device))
 		self.model.to(device)
 		self.model.eval()
 
