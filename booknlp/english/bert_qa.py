@@ -17,7 +17,25 @@ class QuotationAttribution:
 		base_model=re.sub(".model", "", base_model)
 
 		self.model = BERTSpeakerID(base_model=base_model)
-		self.model.load_state_dict(torch.load(modelFile, map_location=device))
+		from transformers import BertModel
+
+		# Get the pretrained model's state dictionary
+		model = BertModel.from_pretrained("google/bert_uncased_L-4_H-256_A-4")
+		torch.save(model.state_dict(), "bert_small_weights.pth")
+		# Load the weights from the saved file
+		model_file = "bert_small_weights.pth"
+		# Load the state dictionary from the file
+		model_state = torch.load(modelFile, map_location=device)
+
+		# Remove unexpected keys
+		unexpected_keys = ["bert.embeddings.position_ids"]
+		for key in unexpected_keys:
+			model_state.pop(key, None)
+
+		# Load the modified state dictionary into the model
+		self.model.load_state_dict(model_state, strict=False)
+
+		#self.model.load_state_dict(torch.load(modelFile, map_location=device))
 		self.model.to(device)
 		self.model.eval()
 
