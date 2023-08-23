@@ -15,16 +15,6 @@ BookNLP ships with two models, both with identical architectures but different u
 
 
 ## Changes Made
-## Latest Changes
-In the latest version of this repository, we have streamlined the installation process by including all the necessary dependencies directly in the `setup.py`. This allows for a smoother installation experience.
-
-### Installation on Macintosh
-To install the package directly from the GitHub repository on a Macintosh system, you can use the following pip command:
-```
-pip install git+https://github.com/your_github_username/repository_name.git
-```
-Replace `your_github_username` with your actual GitHub username and `repository_name` with the name of this repository.
-
 This repository is a fork of the original BookNLP project. It includes modifications to support BERT-based models, specifically addressing issues with unexpected keys in the model's state dictionary.
 
 * BERT Model Support: Introduced the ability to use BERT models for entity recognition, quotation attribution, and coreference resolution.
