@@ -21,9 +21,8 @@ In the latest version of this repository, we have streamlined the installation p
 ### Installation on Macintosh
 To install the package directly from the GitHub repository on a Macintosh system, you can use the following pip command:
 ```
-pip install git+https://github.com/your_github_username/repository_name.git
+pip install git+https://github.com/dpicca/booknlp.git
 ```
-Replace `your_github_username` with your actual GitHub username and `repository_name` with the name of this repository.
 
 This repository is a fork of the original BookNLP project. It includes modifications to support BERT-based models, specifically addressing issues with unexpected keys in the model's state dictionary.
 
