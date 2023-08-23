@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "booknlp"
+version = "0.1.0"
+description = ""
+authors = ["semanticboy <davide.picca@unil.ch>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+transformers = "^4.32.0"
+spacy = "^3.6.1"
+torch = "^2.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
