@@ -6,7 +6,7 @@ authors = ["semanticboy <davide.picca@unil.ch>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 transformers = "^4.32.0"
 spacy = "^3.6.1"
 torch = "^2.0.1"
